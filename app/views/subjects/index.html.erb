@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="well">
+    <%= link_to "New Subject", new_subject_path, remote: true, class: "btn btn-primary" %>
+  </div>
+  <div class="new-subject"></div>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+    <tr>
+      <th>Subject Code</th>
+      <th>Name</th>
+      <th>Description</th>
+      <td>&nbsp;</td>
+      <td>&nbsp;</td>
+    </tr>
+    </thead>
+    <tbody class="subject-index">
+    <%= render "index" %>
+    </tbody>
+  </table>
+</div>
+<div id="subject-modal" class="modal fade"></div>
