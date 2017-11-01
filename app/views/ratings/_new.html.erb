@@ -1,0 +1,31 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>You are rating teacher</h4>
+    </div>
+    <%= form_for @rating, remote: true, html: { style: "display:inline;" } do |f| %>
+      <div class="modal-body text-center">
+        <%= f.hidden_field :student_id, value: current_user.id %>
+        <%= f.hidden_field :teacher_id, value: params[:teacher_id] %>
+        <%= f.hidden_field :rate, value: 0 %>
+        <div class="form-group">
+          <div class="rating">
+            <i class="glyphicon glyphicon-star empty" id="star-1"></i>
+            <i class="glyphicon glyphicon-star empty" id="star-2"></i>
+            <i class="glyphicon glyphicon-star empty" id="star-3"></i>
+            <i class="glyphicon glyphicon-star empty" id="star-4"></i>
+            <i class="glyphicon glyphicon-star empty" id="star-5"></i>
+          </div>
+        </div>
+        <div class="form-group text-left">
+          <label>Comment</label><br/>
+          <%= f.text_area :notes, rows:"4", cols:"60" %>
+        </div>
+        <div class="modal-footer">
+          <%= f.submit "Save", class: "btn btn-primary" %>
+          <%= link_to "Cancel", "#", class: "btn btn-danger", data: {dismiss: "modal"} %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -3,6 +3,7 @@
     <td><%= [teacher.first_name, teacher.last_name].join(' ') %></td>
     <td>
       <% ratings = Rating.teacher_ratings(teacher.id) %>
+      Ratings: <%= ratings %>
       <div class="rating">
         <% (1..5).each do |i| %>
           <% if ratings > i.to_f || ratings == i.to_f %>
@@ -16,6 +17,6 @@
         <% end %>
       </div>
     </td>
-    <td><%= link_to "Rate me", "#", remote: true, class: "btn btn-info" %></td>
+    <td><%= link_to "Rate me", "#{new_rating_path}?teacher_id=#{teacher.id}", remote: true, class: "btn btn-info" %></td>
   </tr>
 <% end %>

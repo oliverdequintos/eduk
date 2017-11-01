@@ -16,4 +16,5 @@
 //= require bootstrap
 //= require jquery-ui
 //= require plugin
+//= require event
 //= require_tree .
