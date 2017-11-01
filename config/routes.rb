@@ -9,6 +9,9 @@ Rails.application.routes.draw do
   end
 
   resources :teacher_subjects
+  resources :student_subjects do
+    get 'available_professor'
+  end
 
   root to: "static_pages#index"
 end

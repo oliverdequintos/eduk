@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101041917) do
+ActiveRecord::Schema.define(version: 20171101102001) do
+
+  create_table "student_subjects", force: :cascade do |t|
+    t.integer  "user_id",            limit: 4
+    t.integer  "teacher_subject_id", limit: 4
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+  end
+
+  add_index "student_subjects", ["teacher_subject_id"], name: "index_student_subjects_on_teacher_subject_id", using: :btree
+  add_index "student_subjects", ["user_id"], name: "index_student_subjects_on_user_id", using: :btree
 
   create_table "subjects", force: :cascade do |t|
     t.string   "subject_code", limit: 255
@@ -57,6 +67,8 @@ ActiveRecord::Schema.define(version: 20171101041917) do
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
+  add_foreign_key "student_subjects", "teacher_subjects"
+  add_foreign_key "student_subjects", "users"
   add_foreign_key "teacher_subjects", "subjects"
   add_foreign_key "teacher_subjects", "users"
 end

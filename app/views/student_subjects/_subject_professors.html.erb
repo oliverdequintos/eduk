@@ -1,0 +1,42 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h4>List of Professors Teaching <%= @subject.subject_code %></h4>
+    </div>
+    <div class="modal-body">
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Teacher</th>
+          <th>Rating</th>
+          <td>&nbsp;</td>
+        </tr>
+        </thead>
+        <% @teacher_subjects.each do |teacher_subject| %>
+          <tbody class="subject-index">
+            <tr>
+              <td><%= [teacher_subject.user.first_name, teacher_subject.user.last_name].join(' ') %></td>
+              <td>
+                <div class="rating">
+                  <i class="glyphicon glyphicon-star"></i>
+                  <i class="glyphicon glyphicon-star"></i>
+                  <i class="glyphicon glyphicon-star"></i>
+                  <i class="glyphicon glyphicon-star"></i>
+                  <i class="glyphicon glyphicon-star half"></i>
+                </div>
+              </td>
+              <td>
+                <%= form_for @student_subject, url: student_subjects_path, method: :post, remote: true, html: { style: "display:inline;" } do |f| %>
+                  <%= f.hidden_field :teacher_subject_id, value: teacher_subject.id %>
+                  <%= f.hidden_field :user_id, value: current_user.id %>
+                  <%= f.submit "Assign", class: "btn btn-primary" %>
+                <% end %>
+              </td>
+            </tr>
+          </tbody>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>
+

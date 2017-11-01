@@ -1,0 +1,26 @@
+<div class="container">
+  <% ctr = 4 %>
+  <% @subjects.each do |subject| %>
+    <% if ctr  % 12 == 0 %>
+      <div class="row">
+    <% end %>
+    <div class="col-sm-4">
+      <h3><%= subject.subject_code %></h3>
+      <p><%= subject.name %></p>
+      <p><%= subject.description %></p>
+      <% teacher_subject = TeacherSubject.where(subject_id: subject.id) %>
+      <% assigned = StudentSubject.exists?(teacher_subject_id: teacher_subject.first.try(:id), user_id: current_user.id) %>
+
+      <% if @student_join_teacher_subjects_subject_id.include?(subject.id) %>
+        <% @student_join_teacher_subjects_subject_id.find_index(subject.id) %>
+        <%= link_to "Drop", student_subject_path(@student_join_teacher_subjects[@student_join_teacher_subjects_subject_id.find_index(subject.id)].id), method: :delete, remote: true, class: "btn btn-danger" %>
+      <% else %>
+        <%= link_to "View Available Professors", student_subject_available_professor_path(subject.id), remote: true, class: "btn btn-primary" %>
+      <% end %>
+    </div>
+    <% if ctr  % 12 == 0 %>
+      <% ctr+=4 %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
