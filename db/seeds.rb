@@ -12,3 +12,57 @@ Subject.create!([
                     {subject_code: "PE 400", name: "Sports 4", description: "Play Soccer"},
                     {subject_code: "Physics", name: "Physics", description: "Physics is the natural science that involves the study of matter and its motion and behavior through space and time, along with related concepts such as energy and force."}
                 ])
+
+User.delete_all
+
+User.create!([
+                 {first_name: "Oliver Teacher 1", middle_name: "", last_name: "De Quintos", date_of_birth: "09/09/1990", gender: true, contact_no: "09097654321", email: "oliver+teacher1@example.com", password: "password", password_confirmation: "password", is_teacher: true},
+                 {first_name: "Oliver Teacher 2", middle_name: "", last_name: "De Quintos", date_of_birth: "09/09/1990", gender: true, contact_no: "09097654322", email: "oliver+teacher2@example.com", password: "password", password_confirmation: "password", is_teacher: true},
+                 {first_name: "Oliver Teacher 3", middle_name: "", last_name: "De Quintos", date_of_birth: "09/09/1990", gender: true, contact_no: "09097654323", email: "oliver+teacher3@example.com", password: "password", password_confirmation: "password", is_teacher: true},
+                 {first_name: "Oliver Teacher 4", middle_name: "", last_name: "De Quintos", date_of_birth: "09/09/1990", gender: true, contact_no: "09097654324", email: "oliver+teacher4@example.com", password: "password", password_confirmation: "password", is_teacher: true},
+                 {first_name: "Oliver Teacher 5", middle_name: "", last_name: "De Quintos", date_of_birth: "09/09/1990", gender: true, contact_no: "09097654325", email: "oliver+teacher5@example.com", password: "password", password_confirmation: "password", is_teacher: true}
+             ])
+
+TeacherSubject.delete_all
+TeacherSubject.create!([
+                           { subject_id: 1, user_id: 1 },
+                           { subject_id: 2, user_id: 1 },
+                           { subject_id: 3, user_id: 1 },
+                           { subject_id: 4, user_id: 1 },
+                           { subject_id: 5, user_id: 1 },
+                           { subject_id: 6, user_id: 1 },
+                           { subject_id: 7, user_id: 1 },
+                           { subject_id: 8, user_id: 1 },
+                           { subject_id: 9, user_id: 1 },
+                           { subject_id: 10, user_id: 1 },
+                           { subject_id: 1, user_id: 2 },
+                           { subject_id: 2, user_id: 2 },
+                           { subject_id: 3, user_id: 2 },
+                           { subject_id: 4, user_id: 2 },
+                           { subject_id: 5, user_id: 2 },
+                           { subject_id: 6, user_id: 2 },
+                           { subject_id: 7, user_id: 3 },
+                           { subject_id: 8, user_id: 3 },
+                           { subject_id: 9, user_id: 3 },
+                           { subject_id: 10, user_id: 3 },
+                           { subject_id: 1, user_id: 3 },
+                           { subject_id: 2, user_id: 3 },
+                           { subject_id: 3, user_id: 3 },
+                           { subject_id: 4, user_id: 4 },
+                           { subject_id: 5, user_id: 4 },
+                           { subject_id: 6, user_id: 4 },
+                           { subject_id: 7, user_id: 4 },
+                           { subject_id: 8, user_id: 4 },
+                           { subject_id: 9, user_id: 4 },
+                           { subject_id: 10, user_id: 4 },
+                           { subject_id: 1, user_id: 5 },
+                           { subject_id: 2, user_id: 5 },
+                           { subject_id: 3, user_id: 5 },
+                           { subject_id: 4, user_id: 5 },
+                           { subject_id: 5, user_id: 5 },
+                           { subject_id: 6, user_id: 5 },
+                           { subject_id: 7, user_id: 5 },
+                           { subject_id: 8, user_id: 5 },
+                           { subject_id: 9, user_id: 5 },
+                           { subject_id: 10, user_id: 5 }
+                       ])
