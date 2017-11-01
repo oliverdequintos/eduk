@@ -13,5 +13,7 @@ Rails.application.routes.draw do
     get 'available_professor'
   end
 
+  resources :ratings
+
   root to: "static_pages#index"
 end

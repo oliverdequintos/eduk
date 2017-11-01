@@ -11,7 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101102001) do
+ActiveRecord::Schema.define(version: 20171101151905) do
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "student_id", limit: 4
+    t.integer  "teacher_id", limit: 4
+    t.decimal  "rate",                     precision: 10
+    t.text     "notes",      limit: 65535
+    t.datetime "created_at",                              null: false
+    t.datetime "updated_at",                              null: false
+  end
 
   create_table "student_subjects", force: :cascade do |t|
     t.integer  "user_id",            limit: 4
