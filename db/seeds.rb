@@ -66,3 +66,8 @@ TeacherSubject.create!([
                            { subject_id: 9, user_id: 5 },
                            { subject_id: 10, user_id: 5 }
                        ])
+
+# Create Admin
+User.create!([
+                 {first_name: "Oliver Admin", middle_name: "", last_name: "De Quintos", date_of_birth: "09/09/1990", gender: true, contact_no: "09097654320", email: "oliver+admin@example.com", password: "password", password_confirmation: "password", is_admin: true}
+             ])

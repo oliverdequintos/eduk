@@ -4,21 +4,27 @@
       <ul class="nav navbar-nav">
         <li><%= link_to 'Home', root_path %></li>
       </ul>
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Subject', subjects_path %></li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Teacher', teachers_path %></li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Teacher Subject', teacher_subjects_path %></li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Available Subjects', student_subjects_path %></li>
-      </ul>
-      <ul class="nav navbar-nav">
-        <li><%= link_to 'Ratings', ratings_path %></li>
-      </ul>
+      <% if current_user.is_admin? %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Subject', subjects_path %></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Teacher', teachers_path %></li>
+        </ul>
+      <% end%>
+      <% if current_user.is_teacher? %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Teacher Subject', teacher_subjects_path %></li>
+        </ul>
+      <% end %>
+      <% unless current_user.is_teacher? %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Available Subjects', student_subjects_path %></li>
+        </ul>
+        <ul class="nav navbar-nav">
+          <li><%= link_to 'Ratings', ratings_path %></li>
+        </ul>
+      <% end %>
       <ul class="nav navbar-nav pull-right">
         <% if user_signed_in? %>
           <li class="dropdown">
