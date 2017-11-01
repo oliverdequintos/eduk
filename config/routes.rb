@@ -4,5 +4,9 @@ Rails.application.routes.draw do
     get "delete"
   end
 
+  resources :teachers do
+    get "delete"
+  end
+
   root to: "static_pages#index"
 end

@@ -1,0 +1,9 @@
+<% @teachers.each do |teacher| %>
+  <tr>
+    <td><%= [teacher.first_name, teacher.last_name].join(' ') %></td>
+    <td><%= teacher.date_of_birth %></td>
+    <td><%= teacher.get_gender %></td>
+    <td><%= link_to "Edit", edit_teacher_path(teacher), remote: true, class: "btn btn-default" %></td>
+    <td><%= link_to "Delete", teacher_delete_path(teacher), remote: true, class: "btn btn-danger" %></td>
+  </tr>
+<% end %>
