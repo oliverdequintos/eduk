@@ -8,5 +8,7 @@ Rails.application.routes.draw do
     get "delete"
   end
 
+  resources :teacher_subjects
+
   root to: "static_pages#index"
 end
