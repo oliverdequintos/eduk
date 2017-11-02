@@ -30,3 +30,10 @@ group :development, :test do
   gem 'mailcatcher'
   gem 'shoulda-matchers'
 end
+
+group :production do
+  gem 'pg'
+  gem 'heroku'
+  gem 'thin'
+  gem 'rails_12factor', group: :production
+end
