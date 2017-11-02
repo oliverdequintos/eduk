@@ -18,7 +18,11 @@
             <% if assigned %>
               <% delete_path = teacher_subject_path(teacher_subject) %>
             <% end %>
-            <%= link_to "Unassign", delete_path, method: :delete, remote: true, class: "btn btn-danger #{'disabled' unless assigned}" %>
+            <% if StudentSubject.where(teacher_subject_id: teacher_subject.id).any? %>
+              <%= link_to "Student(s) Enrolled this Subject", '#', method: :delete, remote: true, class: "btn btn-danger disabled" %>
+            <% else %>
+              <%= link_to "Unassign", delete_path, method: :delete, remote: true, class: "btn btn-danger #{'disabled' unless assigned}" %>
+            <% end %>
       <% end %>
     </div>
     <% if ctr  % 12 == 0 %>
