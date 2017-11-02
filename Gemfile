@@ -33,7 +33,7 @@ end
 
 group :production do
   gem 'pg'
-  gem 'heroku'
+  gem 'platform-api'
   gem 'thin'
   gem 'rails_12factor', group: :production
 end
