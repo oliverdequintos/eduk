@@ -1,11 +1,56 @@
-<% content_for :top_content do %>
-  <div class="jumbotron">
-    <div class="container">
-      <h1>Welcome!</h1>
-      <p>Register to get started.</p>
-      <p>
-        <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary btn-lg' %>
-      </p>
+<div class="container">
+  <% if current_user.is_teacher? %>
+    <h2>My Ratings</h2>
+    <div class="rating">
+      <% (1..5).each do |i| %>
+        <% if @teacher_ratings > i.to_f || @teacher_ratings == i.to_f %>
+          <i class="glyphicon glyphicon-star"></i>
+        <% elsif @teacher_ratings + 1 > i && @teacher_ratings < i.to_f %>
+          <i class="glyphicon glyphicon-star half"></i>
+        <% else %>
+          <i class="glyphicon glyphicon-star empty"></i>
+        <% end %>
+
+      <% end %>
     </div>
-  </div>
-<% end %>
+    <br/>
+    <h2>List of My Subjects</h2>
+    <table class="table table-bordered table-striped">
+      <thead>
+      <tr>
+        <th>Subject Code</th>
+        <th>Student Count</th>
+      </tr>
+      </thead>
+      <tbody class="dashboard-index">
+      <% @teacher_subjects.each do |teacher_subject| %>
+        <tr>
+          <td><%= teacher_subject.subject.subject_code %></td>
+          <td><%= StudentSubject.where(teacher_subject_id: teacher_subject.id).count %></td>
+        </tr>
+      <% end %>
+      </tbody>
+    </table>
+    <% else %>
+      <h2>List of Subjects Enrolled</h2>
+      <table class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Subject Code</th>
+          <th>Professor</th>
+        </tr>
+        </thead>
+        <tbody class="dashboard-index">
+        <% @student_subjects.each do |student_subject| %>
+          <tr>
+            <td><%= student_subject.teacher_subject.subject.subject_code %></td>
+            <% user = student_subject.teacher_subject.user %>
+            <td><%= [user.first_name, user.last_name].join(' ') %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+    </tbody>
+  </table>
+</div>
