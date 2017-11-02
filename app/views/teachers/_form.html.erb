@@ -1,67 +1,81 @@
+<div class="container">
 <div class="modal-dialog">
   <div class="modal-content">
-    <% path = teachers_path %>
-    <% if params[:action] == 'edit' %>
-      <% path = teacher_path %>
-    <% end %>
-    <%= form_for @teacher, url: path, remote: true, html: { style: "display:inline;" } do |f| %>
-      <div class="modal-body">
-        <div class="form-group">
-          <%= f.label :first_name %><br />
-          <%= f.text_field :first_name, autofocus: true %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :middle_name %><br />
-          <%= f.text_field :middle_name %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :last_name %><br />
-          <%= f.text_field :last_name %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :date_of_birth %><br />
-          <%= f.text_field :date_of_birth, :class => "datepicker" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :gender %><br />
-          <%= f.radio_button :gender, true %> Male
-          <%= f.radio_button :gender, false %>Female
-        </div>
-
-        <div class="form-group">
-          <%= f.label :contact_number %><br />
-          <%= f.text_field :contact_no %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :email %><br />
-          <%= f.email_field :email %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password %>
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %> characters minimum)</em>
-          <% end %><br />
-          <%= f.password_field :password, autocomplete: "off" %>
-        </div>
-
-        <div class="form-group">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-
-        <%= f.hidden_field :is_teacher, value: true %>
-
-        <div class="modal-footer">
-          <%= f.submit "Save", class: "btn btn-primary" %>
-          <%= link_to "Cancel", "#", class: "btn btn-danger", data: {dismiss: "modal"} %>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-4">
+          <br/>
+          <ul class="errors"></ul>
         </div>
       </div>
-    <% end %>
+    </div>
+    <div class="row">
+      <div class="col-sm-8">
+        <% path = teachers_path %>
+        <% if params[:action] == 'edit' %>
+          <% path = teacher_path %>
+        <% end %>
+        <%= form_for @teacher, url: path, remote: true, html: { style: "display:inline;" } do |f| %>
+          <div class="modal-body">
+            <div class="form-group">
+              <%= f.label :first_name %><br />
+              <%= f.text_field :first_name, autofocus: true, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :middle_name %><br />
+              <%= f.text_field :middle_name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :last_name %><br />
+              <%= f.text_field :last_name, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :date_of_birth %><br />
+              <%= f.text_field :date_of_birth, :class => "datepicker", class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :gender %><br />
+              <%= f.radio_button :gender, true %> Male
+              <%= f.radio_button :gender, false %>Female
+            </div>
+
+            <div class="form-group">
+              <%= f.label :contact_number %><br />
+              <%= f.text_field :contact_no, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :email %><br />
+              <%= f.email_field :email, class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password %>
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "off", class: 'form-control' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.label :password_confirmation %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off", class: 'form-control' %>
+            </div>
+
+            <%= f.hidden_field :is_teacher, value: true %>
+
+            <div class="modal-footer">
+              <%= f.submit "Save", class: "btn btn-primary" %>
+              <%= link_to "Cancel", "#", class: "btn btn-danger", data: {dismiss: "modal"} %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    </div>
   </div>
+</div>
 </div>
