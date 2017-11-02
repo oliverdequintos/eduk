@@ -19,6 +19,7 @@ class RatingsController < ApplicationController
     end
 
     def refresh_index
-      @teachers = User.where(is_teacher: true)
+      teacher_subject_user_ids = TeacherSubject.joins(:student_subject).where('student_subjects.user_id = ?', current_user.id).map(&:user_id)
+      @teachers = User.where(id: teacher_subject_user_ids)
     end
 end

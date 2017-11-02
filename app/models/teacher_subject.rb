@@ -1,5 +1,5 @@
 class TeacherSubject < ActiveRecord::Base
   belongs_to :subject
   belongs_to :user
-  belongs_to :student_subject
+  has_many :student_subject
 end
