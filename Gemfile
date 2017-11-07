@@ -31,6 +31,11 @@ group :development, :test do
   gem 'shoulda-matchers'
 end
 
+group :test do
+  gem 'database_rewinder', '0.6.0'
+  gem 'database_cleaner', '1.5.3'
+end
+
 group :production do
   gem 'pg'
   gem 'platform-api'

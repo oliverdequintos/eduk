@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe User, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+
+  context "get_gender" do
+    user = FactoryGirl.create :user
+    it { expect(user.get_gender).to eq('Male') }
+  end
 end

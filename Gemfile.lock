@@ -58,6 +58,8 @@ GEM
     concurrent-ruby (1.0.5)
     crass (1.0.2)
     daemons (1.2.5)
+    database_cleaner (1.5.3)
+    database_rewinder (0.6.0)
     debug_inspector (0.0.3)
     devise (4.3.0)
       bcrypt (~> 3.0)
@@ -248,6 +250,8 @@ DEPENDENCIES
   bootstrap-sass
   byebug
   coffee-rails (~> 4.1.0)
+  database_cleaner (= 1.5.3)
+  database_rewinder (= 0.6.0)
   devise
   factory_girl_rails (= 4.7.0)
   font-awesome-rails
